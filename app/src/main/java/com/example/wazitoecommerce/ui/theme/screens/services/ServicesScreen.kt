@@ -1,6 +1,7 @@
 package com.example.wazitoecommerce.ui.theme.screens.services
 
 import android.app.ActionBar.Tab
+import android.content.Intent
 import android.window.SplashScreen
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -25,6 +26,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.R
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
@@ -32,6 +34,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.net.toUri
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
@@ -39,6 +42,7 @@ import androidx.navigation.compose.rememberNavController
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ServicesScreen(navController: NavHostController) {
+    val mContext = LocalContext.current
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -64,7 +68,14 @@ fun ServicesScreen(navController: NavHostController) {
                     modifier = Modifier
                         .padding(start = 20.dp, top = 100.dp)
                         .height(200.dp)
-                        .width(150.dp)
+                        .width(150.dp),
+                    onClick = {
+                        val callIntent= Intent(Intent.ACTION_DIAL)
+                        callIntent.data="tel:0706600555".toUri()
+                        mContext.startActivity(callIntent)
+
+
+                    }
                 ) {
                     Image(
                         painter = painterResource(id = com.example.wazitoecommerce.R.drawable.acc1),
@@ -102,7 +113,14 @@ fun ServicesScreen(navController: NavHostController) {
                     modifier = Modifier
                         .padding(start = 20.dp, top = 100.dp)
                         .height(200.dp)
-                        .width(150.dp)
+                        .width(150.dp),
+                    onClick = {
+                        val callIntent=Intent(Intent.ACTION_DIAL)
+                        callIntent.data="tel:076004567".toUri()
+                        mContext.startActivity(callIntent)
+
+
+                    }
                 ) {
                     Image(
                         painter = painterResource(id = com.example.wazitoecommerce.R.drawable.acc2),
@@ -141,7 +159,14 @@ fun ServicesScreen(navController: NavHostController) {
                     modifier = Modifier
                         .padding(start = 20.dp, top = 50.dp)
                         .height(200.dp)
-                        .width(150.dp)
+                        .width(150.dp),
+                    onClick = {
+                        val callIntent=Intent(Intent.ACTION_DIAL)
+                        callIntent.data="tel:0720650283".toUri()
+                        mContext.startActivity(callIntent)
+
+
+                    }
                 ) {
                     Image(
                         painter = painterResource(id = com.example.wazitoecommerce.R.drawable.acc3),
@@ -181,8 +206,12 @@ fun ServicesScreen(navController: NavHostController) {
                         .height(200.dp)
                         .width(150.dp),
                     onClick = {
-                        navController.navigate("services")
-                    },
+                        val callIntent=Intent(Intent.ACTION_DIAL)
+                        callIntent.data="tel:0722817799".toUri()
+                        mContext.startActivity(callIntent)
+
+
+                    }
                 ) {
                     Image(
                         painter = painterResource(id = com.example.wazitoecommerce.R.drawable.acc4),

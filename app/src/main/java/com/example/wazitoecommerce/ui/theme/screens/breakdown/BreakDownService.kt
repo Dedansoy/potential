@@ -1,5 +1,6 @@
 package com.example.wazitoecommerce.ui.theme.screens.breakdown
 
+import android.content.Intent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -18,6 +19,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
@@ -25,6 +27,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.net.toUri
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.wazitoecommerce.R
@@ -32,6 +35,8 @@ import com.example.wazitoecommerce.R
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BreakDownService(navController: NavController){
+
+    val mContext = LocalContext.current
     Column(modifier = Modifier
         .fillMaxSize()
         .background(color = Color.White)
@@ -53,7 +58,14 @@ fun BreakDownService(navController: NavController){
                 Card (modifier = Modifier
                     .padding(start = 20.dp, top = 100.dp)
                     .height(200.dp)
-                    .width(150.dp)
+                    .width(150.dp),
+                    onClick = {
+                        val callIntent=Intent(Intent.ACTION_DIAL)
+                        callIntent.data="tel:0706600555".toUri()
+                        mContext.startActivity(callIntent)
+
+
+                    }
                 ){
                     Image(painter = painterResource(id = R.drawable.acc1), contentDescription ="help", modifier = Modifier
                         .padding(start = 50.dp, top = 50.dp)
@@ -81,7 +93,14 @@ fun BreakDownService(navController: NavController){
                 Card (modifier = Modifier
                     .padding(start = 20.dp, top = 100.dp)
                     .height(200.dp)
-                    .width(150.dp)
+                    .width(150.dp),
+                    onClick = {
+                        val callIntent=Intent(Intent.ACTION_DIAL)
+                        callIntent.data="tel:076004567".toUri()
+                        mContext.startActivity(callIntent)
+
+
+                    }
                 ){
                     Image(painter = painterResource(id = R.drawable.acc2), contentDescription ="help", modifier = Modifier
                         .padding(start = 50.dp, top = 50.dp)
@@ -110,7 +129,15 @@ fun BreakDownService(navController: NavController){
                 Card (modifier = Modifier
                     .padding(start = 20.dp, top = 50.dp)
                     .height(200.dp)
-                    .width(150.dp)
+                    .width(150.dp),
+                    onClick = {
+                        val callIntent=Intent(Intent.ACTION_DIAL)
+                        callIntent.data="tel:0720650283".toUri()
+                        mContext.startActivity(callIntent)
+
+
+                    }
+
                 ){
                     Image(painter = painterResource(id = R.drawable.acc3), contentDescription ="help", modifier = Modifier
                         .padding(start = 50.dp, top = 50.dp)
@@ -140,8 +167,12 @@ fun BreakDownService(navController: NavController){
                     .height(200.dp)
                     .width(150.dp),
                     onClick = {
-                        navController.navigate("services")
-                    },
+                        val callIntent=Intent(Intent.ACTION_DIAL)
+                        callIntent.data="tel:0722817799".toUri()
+                        mContext.startActivity(callIntent)
+
+
+                    }
                 ){
                     Image(painter = painterResource(id = R.drawable.acc4), contentDescription ="help", modifier = Modifier
                         .padding(start = 50.dp, top = 50.dp)
